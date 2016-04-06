@@ -1,0 +1,37 @@
+{
+  "name": "is-git-clean",
+  "version": "0.0.0",
+  "description": "Find out if a git directory is clean or not",
+  "license": "MIT",
+  "repository": "jamestalmage/is-git-clean",
+  "author": {
+    "name": "James Talmage",
+    "email": "james@talmage.io",
+    "url": "github.com/jamestalmage"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "pretest": "xo && npm run fixtures",
+    "clean": "rm -rf fixtures",
+    "fixtures": "npm run clean && npm run fixture-dirs && npm run fixture-init",
+    "fixture-dirs": "mkdir fixtures && mkdir fixtures/clean && mkdir fixtures/not-clean",
+    "fixture-init": "git init fixtures/clean && git init fixtures/not-clean && touch fixtures/not-clean/dirty.txt",
+    "test": "ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "git",
+    "clean"
+  ],
+  "dependencies": {
+    "execa": "^0.2.2"
+  },
+  "devDependencies": {
+    "ava": "^0.13.0",
+    "xo": "^0.13.0"
+  }
+}
