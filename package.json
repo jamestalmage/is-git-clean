@@ -17,7 +17,7 @@
     "clean": "rm -rf fixtures",
     "fixtures": "npm run clean && npm run fixture-dirs && npm run fixture-init",
     "fixture-dirs": "mkdir fixtures && mkdir fixtures/clean && mkdir fixtures/not-clean",
-    "fixture-init": "git init fixtures/clean && git init fixtures/not-clean && touch fixtures/not-clean/dirty.txt",
+    "fixture-init": "git init fixtures/clean && git init fixtures/not-clean && touch fixtures/not-clean/dirty.txt && touch fixtures/not-clean/dirtier.txt",
     "test": "ava"
   },
   "files": [
@@ -28,7 +28,8 @@
     "clean"
   ],
   "dependencies": {
-    "execa": "^0.2.2"
+    "execa": "^0.2.2",
+    "multimatch": "^2.1.0"
   },
   "devDependencies": {
     "ava": "^0.13.0",
