@@ -2,6 +2,7 @@
 var child = require('child_process');
 var execa = require('execa');
 var multimatch = require('multimatch');
+
 var TEN_MEBIBYTE = 1024 * 1024 * 10;
 var porcelainRegex = /([AMRDC]|\?\?)\s/g;
 

@@ -28,11 +28,11 @@
     "clean"
   ],
   "dependencies": {
-    "execa": "^0.2.2",
+    "execa": "^0.4.0",
     "multimatch": "^2.1.0"
   },
   "devDependencies": {
-    "ava": "^0.13.0",
-    "xo": "^0.13.0"
+    "ava": "^0.16.0",
+    "xo": "^0.16.0"
   }
 }
