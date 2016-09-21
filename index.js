@@ -9,12 +9,10 @@ function filterIgnored(stdout, options) {
 	var parsed = stdout.replace(porcelainRegex, '').trim().split('\n');
 
 	if (options.files) {
-		parsed = multimatch(parsed, options.files);
+		parsed = multimatch(parsed, ['*'].concat(options.files));
 	}
 
-	return parsed.filter(function (file) {
-		return options.ignore.indexOf(file) === -1;
-	});
+	return parsed;
 }
 
 module.exports = function (dir, options) {
