@@ -29,6 +29,7 @@
   ],
   "dependencies": {
     "execa": "^0.4.0",
+    "is-obj": "^1.0.1",
     "multimatch": "^2.1.0"
   },
   "devDependencies": {

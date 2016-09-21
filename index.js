@@ -1,5 +1,6 @@
 'use strict';
 var child = require('child_process');
+var isObj = require('is-obj');
 var execa = require('execa');
 var multimatch = require('multimatch');
 
@@ -16,7 +17,18 @@ function filterIgnored(stdout, options) {
 	return parsed;
 }
 
-module.exports = function (dir, options) {
+function normalizeArgs(fn) {
+	return function (dir, options) {
+		if (isObj(dir)) {
+			options = dir;
+			dir = null;
+		}
+
+		return fn(dir, options);
+	};
+}
+
+module.exports = normalizeArgs(function (dir, options) {
 	return execa('git', ['status', '--porcelain'], {
 		cwd: dir || process.cwd(),
 		preferLocal: false
@@ -27,9 +39,9 @@ module.exports = function (dir, options) {
 
 		return !(result.stdout && result.stdout.trim());
 	});
-};
+});
 
-module.exports.sync = function (dir, options) {
+module.exports.sync = normalizeArgs(function (dir, options) {
 	var stdout = child.execFileSync('git', ['status', '--porcelain'], {
 		cwd: dir || process.cwd(),
 		encoding: 'utf8',
@@ -41,4 +53,4 @@ module.exports.sync = function (dir, options) {
 	}
 
 	return !(stdout && stdout.trim());
-};
+});
