@@ -21,6 +21,10 @@ isGitClean().then(clean => console.log(clean));
 // alternate directory
 isGitClean('/some/path')
 
+// options
+// `ignore.txt` is ignored and not counted as dirty
+isGitClean('/some/path', {files: ['!ignore.txt']})
+
 // sync version
 isGitClean.sync()
 ```
@@ -28,7 +32,7 @@ isGitClean.sync()
 
 ## API
 
-### isGitClean([dir])
+### isGitClean([dir], [options])
 
 Returns a promise for a `boolean` value. `true` if the directory is clean, `false` if it is not.
 
@@ -39,16 +43,19 @@ Default: `process.cwd()`
 
 Path to the directory you want to check.
 
-### isGitClean.sync([dir])
+#### options
 
-Returns a `boolean` value. `true` if the directory is clean, `false` if it is not.
+Type: `object`
 
-#### dir
+##### files
 
-Type: `string` <br>
-Default: `process.cwd()`
+Type: `array`
 
-Path to the directory you want to check.
+An array of [`multimatch`](https://github.com/sindresorhus/multimatch) patterns to ignore certain files.
+
+### isGitClean.sync([dir], [options])
+
+Synchronous version, with the same API as above. Returns a boolean directly, instead of a Promise.
 
 ## License
 
