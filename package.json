@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "pretest": "npm run fixtures",
+    "pretest": "xo && npm run fixtures",
     "clean": "rm -rf fixtures",
     "fixtures": "npm run clean && npm run fixture-dirs && npm run fixture-init",
     "fixture-dirs": "mkdir fixtures && mkdir fixtures/clean && mkdir fixtures/not-clean",
