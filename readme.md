@@ -53,26 +53,9 @@ Type: `array`
 
 An array of [`multimatch`](https://github.com/sindresorhus/multimatch) patterns to ignore certain files.
 
-### isGitClean.sync([dir])
+### isGitClean.sync([dir], [options])
 
-Returns a `boolean` value. `true` if the directory is clean, `false` if it is not.
-
-#### dir
-
-Type: `string` <br>
-Default: `process.cwd()`
-
-Path to the directory you want to check.
-
-#### options
-
-Type: `object`
-
-##### files
-
-Type: `array`
-
-An array of [`multimatch`](https://github.com/sindresorhus/multimatch) patterns to ignore certain files.
+Synchronous version, with the same API as above. Returns a boolean directly, instead of a Promise.
 
 ## License
 
