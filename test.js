@@ -12,7 +12,5 @@ test(async t => {
 	t.false(fn.sync(notClean));
 	t.false(await fn(notClean, {files: ['!dirty.txt']}));
 	t.true(await fn(notClean, {files: ['!dirty.txt', '!dirtier.txt']}));
-	// t.true(await fn(notClean, {files: ['dirty.txt', '!dirty.txt']}));
 	t.true(await fn.sync(notClean, {files: ['!dirty.txt', '!dirtier.txt']}));
-	// t.true(await fn.sync(notClean, {files: ['dirty.txt', '!dirty.txt']}));
 });
